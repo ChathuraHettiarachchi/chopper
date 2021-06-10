@@ -222,11 +222,16 @@ class ChopperClient {
       }
     }
 
-    assert(
-      body == res.body,
-      'Interceptors should not transform the body of the response'
-      'Use Response converter instead',
-    );
+    // assert(
+    //   body == res.body,
+    //   'Interceptors should not transform the body of the response'
+    //   'Use Response converter instead',
+    // );
+
+    if (body != res.body) {
+      print(
+          'Interceptors should not transform the body of the request. Use Request converter instead');
+    }
 
     return res;
   }
